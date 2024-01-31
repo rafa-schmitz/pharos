@@ -1,0 +1,48 @@
+.mantine-Stepper-stepLabel {
+  color: white;
+}
+
+.mantine-Stepper-content {
+  width: 70%;
+}
+
+.mantine-Stepper-root {
+  display: flex;
+  justify-content: space-between;
+  height: 70%;
+}
+
+.mantine-Stepper-steps {
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.mantine-e1yr1q {
+  height: 30%;
+}
+
+.mantine-Group-root {
+  justify-content: space-between;
+}
+
+.steps-button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px){
+  .mantine-Stepper-root{
+    flex-direction: column;
+    height: 100%;
+  }
+  .mantine-Stepper-content{
+    width: 100%;
+  }
+  .steps-button-row{
+    flex-direction: column;
+    margin-top: 40px;
+  }
+}

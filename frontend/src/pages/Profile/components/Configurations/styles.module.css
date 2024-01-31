@@ -1,0 +1,17 @@
+.configForm {
+    width: 100%;
+}
+
+.linkToBack {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+  }
+  
+  .linkToBack h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+  }

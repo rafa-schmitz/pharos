@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: faros-front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - faros_network
+networks:
+  faros_network:
+    external: true

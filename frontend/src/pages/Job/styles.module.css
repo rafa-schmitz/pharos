@@ -1,0 +1,11 @@
+.linkToBack {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+.linkToBack h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+}

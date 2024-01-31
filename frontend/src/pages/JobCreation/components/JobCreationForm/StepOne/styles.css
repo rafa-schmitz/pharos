@@ -1,0 +1,13 @@
+.mantine-Select-label,
+.mantine-InputWrapper-label { 
+  color: white;
+}
+
+.file-upload {
+  grid-row-start: 5;
+  grid-column-start: 1;
+}
+
+.mantine-106vqgs {
+  justify-content: center;
+}

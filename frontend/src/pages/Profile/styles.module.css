@@ -1,0 +1,200 @@
+.bg {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background-color: #0d0221;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav {
+  width: 25%;
+  border-radius: 6.16058px;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  width: 70%;
+  height: 100%;
+  z-index: 2;
+  border-radius: 6.16058px;
+}
+
+.profilePictureContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+}
+
+.profilePicture {
+  border-radius: 50%;
+  width: 296px;
+  height: 296px;
+}
+
+.profileBackgroundImage {
+  width: 100%;
+  height: 250px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  border: 1px solid #e6edf3;
+  border-radius: 6px;
+  background-color: #222435e6;
+}
+
+.profileHeader span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.profileHeader ul {
+  width: 100%;
+}
+
+.experienceHeading span {
+  font-size: 24px;
+}
+
+.userContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 24px;
+  color: #e6edf3;
+  font-weight: 500;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: 400;
+  color: #7d8590;
+}
+
+.userDescription {
+  font-size: 16px;
+  font-weight: 450;
+  color: #e6edf3;
+}
+
+.userRegion,
+.userPosition,
+.editProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  color: #e6edf3;
+}
+
+.graduationTitle,
+.graduationType,
+.graduationDate {
+  color: #fff;
+}
+
+.graduationTitle {
+  font-size: 18px;
+}
+
+.graduationType {
+  font-size: 16px;
+}
+
+.graduationDate {
+  font-size: 14px;
+}
+
+.graduationInfo {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.graduationDetails {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.editProfile {
+  width: 100%;
+  height: 34px;
+  margin: 10px 0;
+  font-weight: 650;
+  border-radius: 6px;
+  border: 1px solid #e6edf3;
+}
+
+.recruiter {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  row-gap: 5px;
+}
+
+.recruiter span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.linkToBack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.linkToBack h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+@media (max-width: 1000px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+
+  .nav,
+  .profileContainer {
+    width: 100%;
+    border-radius: 6.16058px;
+  }
+
+  .userContent {
+    margin-bottom: 25px;
+  }
+}

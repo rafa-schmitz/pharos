@@ -1,0 +1,26 @@
+.titlePosition,
+.titlePositionAboutJob{
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  width: fit-content;
+}
+.titlePositionAboutJob{
+  margin-top: 20px;
+}
+.titleCompany{
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 20px;
+}
+.textDescription,
+.textInfoJobs{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+.textInfoJobs{
+  margin: 0;
+}

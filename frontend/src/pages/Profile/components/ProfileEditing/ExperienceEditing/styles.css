@@ -1,0 +1,47 @@
+.experiencesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.experienceHeading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.experienceHeading span {
+  font-size: 24px;
+}
+
+.mantine-InputWrapper-root {
+  width: 100%;
+}
+
+.mantine-Modal-content {
+  background-color: rgb(26, 27, 30);
+}
+
+.mantine-DatePickerInput-day,
+.mantine-UnstyledButton-root {
+  color: white;
+}
+
+.mantine-UnstyledButton-root.mantine-Pagination-control{
+  color: #000;
+}
+
+#user-role-label,
+#company-name-label,
+.mantine-DatePickerInput-label {
+  margin-bottom: 10px;
+}
+
+#edit-exp,
+#create-exp {
+  justify-content: center;
+}

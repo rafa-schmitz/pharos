@@ -1,0 +1,15 @@
+.mainContainer {
+  z-index: 2;
+  position: relative;
+  max-width: 1220px;
+  padding: 0 20px;
+  margin: 0 auto;
+  height: 90vh;
+}
+
+@media (max-width: 1024px) {
+  .mainContainer {
+    height: 100%;
+    min-height: 100vh;
+  }
+}

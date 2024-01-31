@@ -1,0 +1,51 @@
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+}
+
+.mantine-Select-label,
+.mantine-InputWrapper-label { 
+  color: white;
+}
+
+.job-description-container {
+  grid-row-start: 6;
+  grid-row-end: auto;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.mantine-Textarea-label {
+  color: white;
+  font-size: 17px;
+}
+
+.mantine-MultiSelect-dropdown,
+.mantine-Input-input,
+.mantine-Textarea-input,
+.mantine-PasswordInput-input,
+.mantine-PasswordInput-innerInput{
+  background-color: #25262B;
+  color: white;
+  font-size: 15px;
+}
+
+.mantine-MultiSelect-item,
+.mantine-MultiSelect-value {
+  background-color: #25262B;
+  color: white;
+}
+
+.mantine-nisptb[data-hovered],
+.mantine-MultiSelect-item:hover {
+  background-color: #5d5d5d9d;
+}
+
+@media (max-width: 768px){
+  .formContainer{
+      display: unset;
+  }
+}

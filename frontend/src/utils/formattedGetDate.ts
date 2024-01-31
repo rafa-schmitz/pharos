@@ -1,0 +1,1 @@
+export const formattedGetDate = (day:string) => day.replace(/\D/g, '')

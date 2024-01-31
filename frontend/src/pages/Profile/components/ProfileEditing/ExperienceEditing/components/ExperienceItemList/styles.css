@@ -1,0 +1,27 @@
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto 25px;
+  padding: 20px 30px;
+  border: 1px solid #e6edf3;
+  border-radius: 6px;
+  background-color: #222435e6;
+}
+
+.profileHeader p {
+  color: #fff;
+  font-weight: 600;
+}
+
+.profileHeader p span {
+  color: #fff;
+  font-weight: 500;
+}
+
+.mantine-Modal-header {
+  background-color: transparent;
+}

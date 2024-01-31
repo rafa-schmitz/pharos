@@ -1,0 +1,9 @@
+.exp-form {
+  width: 100%;
+}
+
+#save-exp {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-content: center;
+}
