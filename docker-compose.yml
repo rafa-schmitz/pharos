@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: pharos-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: faros
+    ports:
+      - "3306:3306"
+    volumes:
+      - pharos_db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pharos-network
+
+  # Spring Boot API
+  api:
+    container_name: pharos-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/faros
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - pharos-network
+
+  # React Frontend
+  web:
+    container_name: pharos-web
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    environment:
+      REACT_APP_BASE_URL: http://localhost:8080
+    networks:
+      - pharos-network
+
+volumes:
+  pharos_db_data:
+
+networks:
+  pharos-network:
+    driver: bridge

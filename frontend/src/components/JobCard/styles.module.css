@@ -1,0 +1,71 @@
+/* Job Card Typography */
+.titlePosition {
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  width: fit-content;
+  margin: 0;
+}
+
+.titlePositionAboutJob {
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.titleCompany {
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 20px;
+}
+
+/* Job Card Content */
+.textDescription,
+.textInfoJobs {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.textDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textDescriptionFull {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.textInfoJobs {
+  margin: 0;
+}
+
+/* Navigation */
+.linkToBack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-bottom: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.linkToBack h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+}

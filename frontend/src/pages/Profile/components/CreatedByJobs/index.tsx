@@ -1,80 +1,75 @@
-import React, { useMemo, useState } from "react";
-import { Button, Flex } from '@chakra-ui/react'
-import { Content } from "../../../../types/jobs";
-import { search } from "../../../../services/jobService";
-import { useAuth } from "../../../../context/AuthContext";
-import { Card } from './components/Card'
+import { useEffect, useMemo, useState, useCallback } from 'react'
+import { Button, Flex, Heading } from '@chakra-ui/react'
+
+import { JobCard } from '../../../../components'
+import { Content } from '../../../../types/jobs'
+import { search } from '../../../../services/jobService'
+import { useAuth } from '../../../../context/AuthContext'
+
 import './styles.css'
 
-interface IProps {
+interface CreatedByJobsProps {
   id?: number
 }
 
-export const CreatedByJobs = ({ id }: IProps) => {
-  const { user } = useAuth();
-  const [page, setPage] = useState(0);
+export const CreatedByJobs = ({ id }: CreatedByJobsProps) => {
+  const { user } = useAuth()
+  const [page, setPage] = useState(0)
   const [loading, setLoading] = useState(false)
-  const [jobs, setJobs] = React.useState<Content[]>([]);
+  const [jobs, setJobs] = useState<Content[]>([])
 
-  React.useEffect(() => {
-    search({ page, userId: id ?? user?.id }, 'searchJobsByUserId')
-      .then((res) => setJobs(res.content));
+  const userId = id ?? user?.id
+
+  useEffect(() => {
+    search({ page, userId }, 'searchJobsByUserId').then((res) => setJobs(res.content))
+  }, [userId])
+
+  const handleDeleteJob = useCallback((deletedId: number) => {
+    setJobs((currentJobs) => currentJobs.filter((job) => job.id !== deletedId))
   }, [])
-
-  const handleFilterJobs = (id: number) => {
-    setJobs(jobs.filter(job => job.id !== id))
-  }
 
   const handleSeeMore = async () => {
     try {
       setLoading(true)
-      setPage(prev => prev + 1)
-      const jobs = await search({ page: page + 1, userId: id ?? user?.id }, 'searchJobsByUserId')
-      setTimeout(() => {
-        setLoading(false)
-        setJobs(prev => [...prev, ...jobs.content])
-      }, 1000)
-    }
-    catch (error) {
+      const nextPage = page + 1
+      const response = await search({ page: nextPage, userId }, 'searchJobsByUserId')
+      setPage(nextPage)
+      setJobs((prev) => [...prev, ...response.content])
+    } catch (error) {
       console.error(error)
-      setTimeout(() => {
-        setLoading(false)
-      }, 1000)
+    } finally {
+      setLoading(false)
     }
   }
 
-  const memoJobs = useMemo(() => jobs.map((job) => <Card handleFilterJobs={handleFilterJobs} key={job.id} {...job} />), [jobs])
+  const jobCards = useMemo(
+    () =>
+      jobs.map((job) => (
+        <JobCard key={job.id} job={job} variant="managed" onDelete={handleDeleteJob} />
+      )),
+    [jobs, handleDeleteJob]
+  )
 
   return (
-    <div className="containerJobCreatedByUserId" style={{ display: "flex", flexDirection: "column", gap: "25px" }}>
-      {!memoJobs.length
-        ?
-        <h1 style={{ fontWeight: "bold", fontSize: "26px", marginTop: "25px" }}>Nenhuma vaga criada por este usuário</h1>
-        : memoJobs}
+    <div className="containerJobCreatedByUserId" style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+      {!jobCards.length ? (
+        <Heading as="h2" fontWeight="bold" fontSize="26px" marginTop="25px" color="white">
+          Nenhuma vaga criada por este usuário
+        </Heading>
+      ) : (
+        jobCards
+      )}
 
-      <Flex
-        justifyContent="center"
-        margin={["0", "0", "0", "50px 0 0"]}
-      >
+      <Flex justifyContent="center" margin={['0', '0', '0', '50px 0 0']}>
         <Button
-          maxWidth={["100%", "100%", "100%", "295px"]}
-          color="#fff"
-          backgroundPosition="99% 50%"
-          backgroundSize="400% 400%"
-          transition="all 0.5s"
-          padding="20px 50px"
-          border="2px solid transparent"
-          borderRadius="60px"
-          background="linear-gradient( 345deg, #490cb0 0%, #9b34ef 33%, rgba(255, 255, 255, 0) 66%, rgba(255, 255, 255, 0) 100% )"
-          _hover={{ backgroundPosition: "1% 50%", borderColor: "#c600ff" }}
-          fontSize={14}
+          variant="primary"
+          maxWidth={['100%', '100%', '100%', '295px']}
           isLoading={loading}
-          onClick={() => handleSeeMore()}
+          onClick={handleSeeMore}
         >
           Ver mais
         </Button>
       </Flex>
     </div>
   )
-
 }

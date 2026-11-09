@@ -1,12 +1,21 @@
+/* Form Container */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Divider with text */
 .alreadyUser {
   position: relative;
   z-index: 0;
   width: 85%;
   text-align: center;
-  background-image: linear-gradient(to right,
-      #490cb0,
-      white 50%,
-      #490cb0);
+  background-image: linear-gradient(to right, #490cb0, white 50%, #490cb0);
   background-repeat: no-repeat;
   background-size: 100% 1.5px;
   background-position: 0 center;
@@ -20,13 +29,15 @@
   height: 1px;
   z-index: -1;
 }
+
 .textLogin,
 .alreadyUser {
   color: #000;
   font-size: 14px;
   font-weight: 500;
 }
-.titleLogin{
+
+.titleLogin {
   color: #490cb0;
   font-size: 35px;
   font-weight: 600;
@@ -37,8 +48,3 @@
   font-weight: 600;
   color: #490cb0;
 }
-
-.input {
-  text-indent: 10px;
-}
-
